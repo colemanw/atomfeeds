@@ -101,7 +101,7 @@ class CRM_Atomfeeds_Page_Feed extends CRM_Core_Page {
     }
     $feed = @simplexml_load_string($rawFeed);
 
-    $blog = array();
+    $blog = [];
 
     $items = NULL;
     if (!empty($feed->channel->item)) {

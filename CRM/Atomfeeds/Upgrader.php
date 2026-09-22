@@ -31,7 +31,7 @@ class CRM_Atomfeeds_Upgrader extends CRM_Atomfeeds_Upgrader_Base {
   public function install() {
     // TODO: create dashlet for each of the feeds in 
     // CRM_Core_BAO_Setting::getItem('atomfeed', 'feed_urls')
-    civicrm_api3('Dashboard', 'create', array(
+    civicrm_api3('Dashboard', 'create', [
       'domain_id' => CRM_Core_Config::domainID(),
       // TODO: get title from feed
       'name' => 'feed',
@@ -43,19 +43,19 @@ class CRM_Atomfeeds_Upgrader extends CRM_Atomfeeds_Upgrader_Base {
       'fullscreen_url' => 'civicrm/dashlet/feed?snippet=5&context=dashletFullScreen',
       'is_fullscreen' => 1,
       'is_active' => 1,
-    ));
+    ]);
   }
 
   /**
    * Remove feed dashlet(s)
    */
   public function uninstall() {
-    civicrm_api3('Dashboard', 'get', array(
+    civicrm_api3('Dashboard', 'get', [
       'domain_id' => CRM_Core_Config::domainID(),
       // TODO: get title from feed
       'url' => 'civicrm/dashlet/feed',
-      'api.Dashboard.delete' => array('id' => '$value.id'),
-    ));
+      'api.Dashboard.delete' => ['id' => '$value.id'],
+    ]);
   }
 
   /**
