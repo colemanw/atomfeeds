@@ -27,8 +27,6 @@
  +--------------------------------------------------------------------+
  */
 
-require_once 'CRM/Core/Page.php';
-
 /**
  * Page for atom feed dashlet.
  *
